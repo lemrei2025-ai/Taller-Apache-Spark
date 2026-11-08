@@ -1,0 +1,501 @@
+id_cliente,nombre,edad,genero,ciudad,region,fecha_registro,segmento
+1,Carlos García,65,M,Pasto,Andina,2021-05-16,Básico
+2,Carlos Díaz,65,F,Montería,Caribe,2023-04-24,Básico
+3,María López,32,F,Bogotá,Andina,2023-02-23,Básico
+4,Sebastián Sánchez,32,M,Pasto,Andina,2023-04-21,Básico
+5,Andrés Vargas,45,M,Bogotá,Andina,2021-07-23,Básico
+6,Carlos Rodríguez,42,F,Bucaramanga,Andina,2022-01-05,Plata
+7,Valentina Rojas,20,M,Villavicencio,Orinoquía,2023-01-03,Básico
+8,María Torres,36,M,Pereira,Andina,2023-03-28,Básico
+9,Luis Díaz,32,M,Medellín,Andina,2020-06-12,Plata
+10,Daniela González,47,M,Medellín,Andina,2020-11-29,Básico
+11,Valentina Vargas,61,F,Barranquilla,Caribe,2023-06-01,Plata
+12,Juan Martínez,47,M,Santa Marta,Caribe,2021-07-06,Oro
+13,Sebastián López,61,M,Pasto,Andina,2024-09-22,Plata
+14,Juan Moreno,20,M,Bogotá,Andina,2022-04-01,Básico
+15,Natalia Castro,63,M,Barranquilla,Caribe,2021-03-11,Plata
+16,Paula Martínez,34,F,Pereira,Andina,2021-05-20,Plata
+17,Valentina Vargas,55,M,Santa Marta,Caribe,2023-04-10,Básico
+18,Laura Torres,49,F,Barranquilla,Caribe,2024-03-27,Básico
+19,Laura Díaz,28,M,Medellín,Andina,2023-05-06,Básico
+20,Julián Ramírez,51,M,Pereira,Andina,2023-02-07,Plata
+21,Carlos Díaz,74,M,Bogotá,Andina,2024-04-23,Plata
+22,Diego Sánchez,28,M,Medellín,Andina,2020-01-07,Oro
+23,Valentina Torres,66,F,Montería,Caribe,2022-11-05,Oro
+24,Diego Moreno,58,F,Pasto,Andina,2020-11-09,Básico
+25,Sebastián Rojas,51,F,Cali,Pacífica,2023-05-11,Básico
+26,Carlos Castro,41,M,Bogotá,Andina,2021-05-05,Básico
+27,María Rodríguez,64,M,Villavicencio,Orinoquía,2024-07-29,Básico
+28,Laura Martínez,60,M,Santa Marta,Caribe,2023-01-30,Básico
+29,Julián Sánchez,31,F,Santa Marta,Caribe,2023-12-31,Básico
+30,Santiago Ramírez,75,M,Pasto,Andina,2020-09-04,Básico
+31,Camila García,55,F,Medellín,Andina,2023-04-20,Básico
+32,Luis López,22,F,Medellín,Andina,2024-10-26,Básico
+33,Juan González,60,M,Santa Marta,Caribe,2021-03-14,Básico
+34,Natalia Gómez,48,F,Montería,Caribe,2024-05-25,Básico
+35,Sofía Rodríguez,24,M,Pereira,Andina,2021-12-26,Básico
+36,Luis Díaz,59,F,Manizales,Andina,2020-05-04,Básico
+37,Carlos López,30,F,Bucaramanga,Andina,2023-01-03,Básico
+38,Andrés González,47,F,Pereira,Andina,2024-11-25,Oro
+39,Sebastián Rodríguez,21,F,Manizales,Andina,2020-07-10,Oro
+40,Andrés Sánchez,49,M,Barranquilla,Caribe,2021-03-13,Plata
+41,Andrés Sánchez,18,M,Bogotá,Andina,2021-06-27,Oro
+42,Diego Sánchez,62,M,Manizales,Andina,2020-11-13,Básico
+43,Luis Gómez,65,F,Barranquilla,Caribe,2024-03-11,Básico
+44,Natalia Ramírez,50,F,Bogotá,Andina,2020-04-26,Oro
+45,Andrés Rodríguez,56,F,Medellín,Andina,2023-10-14,Plata
+46,Carlos Castro,54,F,Pereira,Andina,2023-03-31,Básico
+47,María Sánchez,60,M,Villavicencio,Orinoquía,2021-06-18,Básico
+48,Camila López,34,M,Montería,Caribe,2020-09-25,Plata
+49,Paula Pérez,66,F,Cartagena,Caribe,2020-01-20,Básico
+50,Carlos Rodríguez,52,F,Villavicencio,Orinoquía,2022-11-02,Básico
+51,María Castro,33,M,Bucaramanga,Andina,2021-08-06,Básico
+52,Diego Gómez,69,F,Santa Marta,Caribe,2023-09-29,Plata
+53,Carlos Castro,26,M,Cartagena,Caribe,2020-08-24,Plata
+54,Sebastián Martínez,35,M,Montería,Caribe,2023-05-23,Básico
+55,Sofía Díaz,58,M,Bucaramanga,Andina,2022-11-01,Básico
+56,María Díaz,45,M,Bogotá,Andina,2020-03-31,Básico
+57,Valentina Martínez,65,M,Cali,Pacífica,2023-02-03,Plata
+58,Ana Rodríguez,22,F,Santa Marta,Caribe,2023-01-22,Básico
+59,Natalia Torres,27,M,Bucaramanga,Andina,2020-09-18,Básico
+60,Luis Castro,40,F,Bucaramanga,Andina,2023-10-28,Básico
+61,Santiago Rojas,53,M,Medellín,Andina,2023-06-25,Plata
+62,Andrés Rojas,69,F,Barranquilla,Caribe,2022-04-24,Básico
+63,Camila Rojas,44,F,Montería,Caribe,2021-06-30,Básico
+64,Carlos Sánchez,73,F,Montería,Caribe,2024-10-24,Básico
+65,Paula Pérez,37,F,Barranquilla,Caribe,2021-04-01,Básico
+66,Daniela Pérez,35,F,Barranquilla,Caribe,2024-05-02,Básico
+67,Isabella Sánchez,61,M,Pasto,Andina,2020-02-26,Básico
+68,Andrés Gómez,34,F,Cartagena,Caribe,2020-08-10,Básico
+69,Camila Sánchez,56,F,Bucaramanga,Andina,2022-02-27,Plata
+70,Valentina García,63,M,Barranquilla,Caribe,2020-01-04,Básico
+71,Sofía Pérez,45,F,Santa Marta,Caribe,2023-09-22,Oro
+72,Camila Díaz,72,F,Villavicencio,Orinoquía,2024-01-14,Oro
+73,Diego Díaz,44,M,Santa Marta,Caribe,2022-04-04,Plata
+74,Laura López,44,M,Santa Marta,Caribe,2023-10-19,Plata
+75,Julián Gómez,37,M,Cali,Pacífica,2023-01-27,Plata
+76,Diego López,45,M,Cartagena,Caribe,2022-08-10,Básico
+77,Sofía Torres,48,F,Pasto,Andina,2023-09-11,Básico
+78,Julián Pérez,23,F,Santa Marta,Caribe,2023-10-09,Básico
+79,Laura García,20,F,Barranquilla,Caribe,2022-08-31,Plata
+80,Paula Sánchez,74,F,Medellín,Andina,2024-01-11,Plata
+81,Daniela López,27,F,Manizales,Andina,2024-03-17,Plata
+82,Felipe López,29,M,Medellín,Andina,2020-04-12,Básico
+83,Paula Martínez,69,M,Medellín,Andina,2023-09-29,Básico
+84,Julián Pérez,66,M,Santa Marta,Caribe,2023-06-08,Plata
+85,Felipe Moreno,53,M,Santa Marta,Caribe,2020-11-21,Plata
+86,Paula González,66,F,Manizales,Andina,2024-09-16,Plata
+87,Mateo Díaz,33,M,Santa Marta,Caribe,2022-06-19,Básico
+88,Juan González,39,M,Cartagena,Caribe,2023-01-11,Básico
+89,Juan Sánchez,62,F,Cali,Pacífica,2023-12-17,Básico
+90,Felipe Pérez,52,M,Pereira,Andina,2022-05-01,Básico
+91,Daniela Castro,67,F,Pereira,Andina,2024-10-20,Plata
+92,Daniela Ramírez,18,M,Villavicencio,Orinoquía,2021-09-03,Plata
+93,Sebastián Vargas,65,F,Pereira,Andina,2022-09-26,Básico
+94,Mateo García,42,M,Pereira,Andina,2023-10-01,Plata
+95,Andrés Moreno,47,F,Pereira,Andina,2023-06-28,Básico
+96,Natalia Gómez,60,F,Pereira,Andina,2020-06-20,Plata
+97,Paula Martínez,21,M,Cali,Pacífica,2022-02-15,Básico
+98,Camila Pérez,66,M,Manizales,Andina,2021-07-23,Plata
+99,Valentina Moreno,23,M,Pereira,Andina,2020-02-09,Plata
+100,Santiago López,59,F,Bogotá,Andina,2024-05-18,Oro
+101,Ana López,30,F,Bogotá,Andina,2023-06-26,Básico
+102,Mateo Díaz,25,F,Cali,Pacífica,2022-08-10,Plata
+103,Andrés Gómez,56,F,Bucaramanga,Andina,2024-05-11,Plata
+104,Carlos Gómez,19,M,Cartagena,Caribe,2023-03-25,Plata
+105,Daniela Vargas,30,F,Pereira,Andina,2023-04-27,Plata
+106,Juan Rodríguez,62,M,Pasto,Andina,2024-10-07,Plata
+107,Natalia Rojas,20,M,Medellín,Andina,2022-12-27,Básico
+108,María Torres,59,M,Bucaramanga,Andina,2020-01-26,Plata
+109,Carlos Sánchez,41,M,Manizales,Andina,2023-12-19,Básico
+110,Isabella Díaz,35,M,Cali,Pacífica,2022-08-10,Básico
+111,Natalia González,38,F,Montería,Caribe,2024-08-28,Oro
+112,Paula López,66,M,Cartagena,Caribe,2023-03-13,Plata
+113,Camila García,49,M,Pereira,Andina,2021-01-07,Básico
+114,Valentina Pérez,35,M,Bucaramanga,Andina,2023-02-12,Básico
+115,María López,64,M,Barranquilla,Caribe,2022-09-27,Básico
+116,Mateo Díaz,63,M,Barranquilla,Caribe,2022-07-06,Plata
+117,Diego López,43,F,Medellín,Andina,2021-09-19,Plata
+118,Mateo Torres,51,M,Bucaramanga,Andina,2022-05-21,Oro
+119,Camila Pérez,62,M,Santa Marta,Caribe,2021-07-08,Básico
+120,Carlos Vargas,30,M,Barranquilla,Caribe,2020-09-01,Plata
+121,Andrés López,31,M,Montería,Caribe,2021-07-20,Plata
+122,Julián González,24,F,Santa Marta,Caribe,2021-08-29,Básico
+123,Diego García,63,F,Cali,Pacífica,2021-07-15,Básico
+124,Sebastián González,62,F,Bogotá,Andina,2023-07-30,Plata
+125,Carlos Moreno,18,M,Manizales,Andina,2022-08-19,Básico
+126,Andrés García,34,M,Bucaramanga,Andina,2020-08-21,Plata
+127,Mateo Rodríguez,54,F,Pereira,Andina,2020-11-06,Básico
+128,Diego Rodríguez,33,F,Villavicencio,Orinoquía,2023-02-16,Plata
+129,Julián Rojas,57,F,Villavicencio,Orinoquía,2024-05-07,Básico
+130,Paula González,73,M,Manizales,Andina,2021-09-17,Básico
+131,Julián Vargas,24,F,Bogotá,Andina,2023-07-05,Básico
+132,María Martínez,33,F,Pasto,Andina,2023-02-04,Básico
+133,Felipe Ramírez,62,M,Bogotá,Andina,2021-08-19,Básico
+134,Diego Vargas,73,M,Cartagena,Caribe,2020-05-25,Plata
+135,Natalia Díaz,69,F,Cartagena,Caribe,2022-05-20,Básico
+136,Laura Castro,35,F,Barranquilla,Caribe,2020-05-26,Básico
+137,Julián Vargas,70,M,Cartagena,Caribe,2022-06-18,Básico
+138,Diego Vargas,43,M,Montería,Caribe,2022-10-21,Básico
+139,María Gómez,20,M,Manizales,Andina,2024-02-13,Básico
+140,Ana Rodríguez,32,F,Cartagena,Caribe,2024-04-15,Plata
+141,Natalia García,66,F,Cartagena,Caribe,2022-08-21,Básico
+142,Valentina Martínez,55,M,Manizales,Andina,2023-07-24,Plata
+143,Mateo Pérez,44,M,Medellín,Andina,2021-10-19,Plata
+144,Camila Sánchez,62,M,Cali,Pacífica,2021-08-13,Plata
+145,Sebastián García,47,F,Pereira,Andina,2021-10-06,Básico
+146,Daniela Moreno,50,F,Medellín,Andina,2023-09-08,Plata
+147,Felipe García,30,M,Manizales,Andina,2023-06-29,Plata
+148,Paula Rojas,21,F,Pasto,Andina,2021-06-30,Básico
+149,Paula Castro,62,M,Cartagena,Caribe,2020-09-05,Básico
+150,Julián Rojas,33,F,Pasto,Andina,2021-09-28,Básico
+151,Felipe Rodríguez,32,F,Santa Marta,Caribe,2022-08-03,Oro
+152,Laura Ramírez,63,M,Pasto,Andina,2022-11-08,Plata
+153,Mateo Ramírez,33,M,Pereira,Andina,2023-02-02,Básico
+154,Julián Torres,65,F,Barranquilla,Caribe,2024-11-04,Básico
+155,Camila Castro,68,M,Pereira,Andina,2024-08-07,Básico
+156,Diego Moreno,55,M,Montería,Caribe,2024-11-07,Básico
+157,Mateo Pérez,39,M,Santa Marta,Caribe,2022-07-21,Oro
+158,Juan Gómez,42,F,Barranquilla,Caribe,2024-10-19,Plata
+159,Camila Vargas,48,M,Bogotá,Andina,2022-03-01,Oro
+160,Laura Ramírez,20,F,Pasto,Andina,2022-10-25,Oro
+161,Carlos Moreno,72,M,Bucaramanga,Andina,2020-07-23,Básico
+162,Ana Vargas,27,M,Manizales,Andina,2024-11-18,Plata
+163,María Ramírez,68,M,Cali,Pacífica,2021-11-24,Plata
+164,María Moreno,39,M,Pereira,Andina,2021-10-10,Plata
+165,Sebastián García,57,F,Manizales,Andina,2021-04-25,Plata
+166,Juan Vargas,23,M,Cartagena,Caribe,2020-07-20,Plata
+167,Carlos Ramírez,28,M,Montería,Caribe,2020-02-29,Básico
+168,Diego Pérez,41,M,Bogotá,Andina,2020-10-25,Básico
+169,Natalia Díaz,68,F,Pereira,Andina,2020-12-14,Básico
+170,Daniela Gómez,61,F,Villavicencio,Orinoquía,2022-10-16,Oro
+171,Juan Ramírez,58,M,Cali,Pacífica,2022-07-30,Básico
+172,Paula Castro,36,F,Bogotá,Andina,2020-05-31,Básico
+173,Natalia González,58,M,Bucaramanga,Andina,2023-11-14,Básico
+174,Sofía Sánchez,72,M,Cartagena,Caribe,2020-08-06,Básico
+175,Santiago Gómez,36,M,Villavicencio,Orinoquía,2020-02-14,Oro
+176,Daniela González,18,F,Pasto,Andina,2023-05-26,Plata
+177,Juan Gómez,69,M,Cartagena,Caribe,2021-03-24,Plata
+178,Valentina Díaz,66,F,Villavicencio,Orinoquía,2023-07-10,Básico
+179,Luis González,68,M,Pasto,Andina,2020-03-09,Básico
+180,Laura Rodríguez,36,M,Montería,Caribe,2024-03-10,Básico
+181,Laura Rojas,52,M,Barranquilla,Caribe,2022-12-23,Básico
+182,Andrés González,70,M,Cartagena,Caribe,2024-07-09,Básico
+183,Carlos Ramírez,22,F,Bucaramanga,Andina,2024-03-24,Oro
+184,Daniela Moreno,69,M,Pasto,Andina,2020-07-03,Plata
+185,Valentina Torres,25,M,Bogotá,Andina,2022-01-24,Plata
+186,Valentina Gómez,42,M,Pasto,Andina,2020-08-09,Plata
+187,Ana Gómez,74,M,Manizales,Andina,2023-06-03,Básico
+188,Paula Castro,62,M,Medellín,Andina,2023-08-22,Básico
+189,Luis García,37,M,Cali,Pacífica,2020-08-25,Básico
+190,Laura Sánchez,47,M,Santa Marta,Caribe,2023-10-05,Oro
+191,Sebastián Sánchez,55,F,Montería,Caribe,2022-04-29,Plata
+192,Julián Sánchez,35,F,Manizales,Andina,2023-11-14,Básico
+193,Paula López,72,M,Manizales,Andina,2020-07-22,Oro
+194,Sebastián Castro,59,M,Bucaramanga,Andina,2020-05-04,Básico
+195,Carlos Moreno,70,M,Barranquilla,Caribe,2020-07-06,Plata
+196,Julián García,21,M,Pasto,Andina,2021-05-13,Oro
+197,Sofía Rodríguez,71,F,Villavicencio,Orinoquía,2023-04-15,Básico
+198,Camila Rojas,27,F,Barranquilla,Caribe,2021-07-21,Plata
+199,Laura Torres,34,F,Cali,Pacífica,2020-08-13,Plata
+200,Laura García,40,F,Bogotá,Andina,2023-04-20,Básico
+201,Valentina García,26,M,Cali,Pacífica,2022-12-13,Básico
+202,Mateo Ramírez,67,M,Medellín,Andina,2022-11-17,Básico
+203,Isabella López,57,F,Manizales,Andina,2024-01-29,Plata
+204,Isabella González,47,F,Pasto,Andina,2020-05-04,Oro
+205,Felipe Díaz,24,M,Pereira,Andina,2023-12-29,Oro
+206,María Pérez,56,F,Medellín,Andina,2020-05-14,Básico
+207,Natalia Torres,63,M,Villavicencio,Orinoquía,2022-02-19,Oro
+208,Diego Ramírez,50,M,Santa Marta,Caribe,2020-07-22,Plata
+209,Sebastián Vargas,73,F,Medellín,Andina,2022-05-30,Básico
+210,Felipe Pérez,70,M,Barranquilla,Caribe,2022-03-27,Básico
+211,Camila Sánchez,38,M,Medellín,Andina,2022-02-05,Oro
+212,Mateo Rodríguez,23,F,Pasto,Andina,2020-07-09,Básico
+213,Santiago Rojas,26,F,Montería,Caribe,2023-04-16,Oro
+214,Camila Díaz,25,M,Santa Marta,Caribe,2021-12-25,Plata
+215,Luis González,56,M,Pereira,Andina,2021-12-21,Básico
+216,Sofía Martínez,60,M,Santa Marta,Caribe,2021-04-04,Plata
+217,Sebastián Pérez,25,M,Bucaramanga,Andina,2023-03-21,Básico
+218,Sebastián Rojas,70,F,Pereira,Andina,2023-06-01,Oro
+219,Valentina García,29,M,Montería,Caribe,2023-12-10,Plata
+220,Santiago García,29,F,Bucaramanga,Andina,2023-03-05,Plata
+221,Laura Vargas,58,F,Medellín,Andina,2020-07-06,Plata
+222,Daniela Sánchez,47,M,Barranquilla,Caribe,2020-11-18,Básico
+223,Camila Rojas,54,F,Montería,Caribe,2020-04-17,Básico
+224,Luis Díaz,23,M,Villavicencio,Orinoquía,2022-06-26,Plata
+225,Julián Ramírez,44,M,Manizales,Andina,2021-03-17,Plata
+226,Santiago Sánchez,25,M,Medellín,Andina,2023-10-20,Plata
+227,Isabella Díaz,37,F,Manizales,Andina,2021-03-27,Básico
+228,Luis García,31,M,Villavicencio,Orinoquía,2021-03-08,Plata
+229,Diego Pérez,25,F,Cartagena,Caribe,2022-10-15,Plata
+230,Laura Sánchez,52,F,Cali,Pacífica,2022-10-21,Básico
+231,Santiago Rodríguez,43,F,Pasto,Andina,2022-06-12,Básico
+232,Camila Gómez,45,M,Medellín,Andina,2023-12-24,Plata
+233,Carlos Sánchez,19,M,Cartagena,Caribe,2020-12-17,Plata
+234,Paula Moreno,62,M,Villavicencio,Orinoquía,2020-06-29,Básico
+235,Juan Sánchez,55,M,Medellín,Andina,2022-12-09,Básico
+236,Camila López,39,F,Cartagena,Caribe,2020-06-05,Básico
+237,Isabella Torres,30,M,Medellín,Andina,2021-12-20,Plata
+238,Laura López,24,F,Pasto,Andina,2021-06-08,Básico
+239,Laura Rojas,66,F,Villavicencio,Orinoquía,2020-12-28,Oro
+240,Mateo Ramírez,66,M,Pasto,Andina,2023-10-26,Oro
+241,Julián Pérez,73,M,Villavicencio,Orinoquía,2020-11-05,Básico
+242,Paula Díaz,37,M,Manizales,Andina,2023-04-26,Básico
+243,María González,47,M,Santa Marta,Caribe,2020-03-18,Básico
+244,María Díaz,73,F,Cartagena,Caribe,2023-06-13,Básico
+245,Paula Gómez,53,F,Pereira,Andina,2022-07-10,Oro
+246,Sofía Pérez,56,M,Villavicencio,Orinoquía,2022-10-23,Básico
+247,Paula Rodríguez,69,M,Bogotá,Andina,2024-01-02,Básico
+248,Andrés García,33,M,Pasto,Andina,2022-06-18,Básico
+249,Andrés Pérez,41,M,Villavicencio,Orinoquía,2022-03-04,Básico
+250,Julián García,68,M,Bucaramanga,Andina,2020-05-14,Básico
+251,Daniela González,34,F,Santa Marta,Caribe,2021-11-13,Básico
+252,Laura Castro,40,M,Pasto,Andina,2023-09-05,Plata
+253,Laura Gómez,63,F,Pereira,Andina,2021-09-26,Básico
+254,Camila Moreno,26,F,Pasto,Andina,2023-08-16,Plata
+255,Santiago García,41,M,Santa Marta,Caribe,2021-01-04,Oro
+256,Mateo López,32,F,Bucaramanga,Andina,2020-11-13,Básico
+257,Isabella Rojas,52,F,Medellín,Andina,2023-09-17,Básico
+258,Laura Gómez,42,F,Villavicencio,Orinoquía,2020-11-28,Básico
+259,Julián Rojas,75,F,Montería,Caribe,2024-01-16,Básico
+260,Santiago Díaz,64,F,Pereira,Andina,2022-06-28,Plata
+261,Paula López,52,F,Montería,Caribe,2021-09-25,Oro
+262,Sofía Pérez,61,M,Manizales,Andina,2022-08-03,Plata
+263,Isabella Torres,44,F,Pereira,Andina,2024-07-30,Básico
+264,Laura Moreno,34,F,Villavicencio,Orinoquía,2023-08-06,Básico
+265,Sebastián Castro,24,F,Bucaramanga,Andina,2021-08-06,Básico
+266,Valentina Ramírez,75,F,Cali,Pacífica,2024-08-28,Básico
+267,Paula Castro,40,F,Barranquilla,Caribe,2022-04-29,Básico
+268,Santiago López,42,F,Santa Marta,Caribe,2022-02-06,Básico
+269,Carlos Moreno,63,M,Bucaramanga,Andina,2024-06-08,Básico
+270,Diego Castro,71,M,Bogotá,Andina,2023-11-26,Plata
+271,Mateo Ramírez,57,F,Montería,Caribe,2020-06-11,Básico
+272,Laura Torres,64,M,Barranquilla,Caribe,2020-08-15,Plata
+273,Diego Rodríguez,21,F,Barranquilla,Caribe,2022-05-09,Plata
+274,Paula Rodríguez,25,M,Villavicencio,Orinoquía,2023-05-07,Básico
+275,Isabella Gómez,33,F,Pasto,Andina,2021-08-19,Básico
+276,Santiago López,54,M,Villavicencio,Orinoquía,2021-01-18,Plata
+277,Isabella Pérez,22,F,Medellín,Andina,2022-03-10,Plata
+278,Daniela Pérez,34,F,Bogotá,Andina,2022-01-01,Plata
+279,Juan Vargas,60,F,Bucaramanga,Andina,2024-04-29,Básico
+280,Laura García,40,M,Bucaramanga,Andina,2024-07-24,Plata
+281,Paula Vargas,48,F,Pasto,Andina,2024-07-19,Básico
+282,Paula García,36,F,Montería,Caribe,2020-03-30,Plata
+283,Camila Castro,37,M,Bogotá,Andina,2024-07-27,Básico
+284,Luis Rojas,59,F,Cartagena,Caribe,2021-08-08,Básico
+285,Camila González,25,M,Bogotá,Andina,2022-06-13,Plata
+286,Paula Castro,42,M,Montería,Caribe,2021-01-17,Básico
+287,Santiago Castro,69,M,Manizales,Andina,2024-06-28,Básico
+288,María Sánchez,56,F,Pereira,Andina,2023-01-22,Básico
+289,María Pérez,60,M,Medellín,Andina,2021-09-19,Básico
+290,Felipe Martínez,62,M,Montería,Caribe,2021-12-20,Básico
+291,Santiago Gómez,45,M,Montería,Caribe,2023-08-02,Oro
+292,María Díaz,58,M,Bogotá,Andina,2022-01-14,Básico
+293,Andrés García,27,M,Montería,Caribe,2020-03-12,Básico
+294,Santiago Pérez,42,F,Barranquilla,Caribe,2023-05-24,Básico
+295,Santiago Pérez,46,F,Manizales,Andina,2023-03-21,Básico
+296,Daniela Pérez,59,M,Bucaramanga,Andina,2021-05-26,Oro
+297,Andrés Ramírez,51,M,Bogotá,Andina,2023-02-24,Básico
+298,Paula López,57,M,Cartagena,Caribe,2023-11-22,Oro
+299,Sofía Rodríguez,26,F,Manizales,Andina,2022-07-14,Básico
+300,Paula Rodríguez,69,M,Montería,Caribe,2023-09-29,Básico
+301,Sebastián Torres,36,M,Medellín,Andina,2024-10-09,Básico
+302,Andrés Rojas,41,F,Montería,Caribe,2020-09-05,Oro
+303,Juan Rojas,49,F,Cali,Pacífica,2022-01-09,Básico
+304,Paula Rojas,53,F,Bucaramanga,Andina,2023-06-07,Plata
+305,Diego Sánchez,63,M,Medellín,Andina,2022-12-12,Básico
+306,Natalia Rodríguez,26,M,Pereira,Andina,2023-08-08,Básico
+307,Isabella Pérez,26,F,Manizales,Andina,2024-04-21,Oro
+308,Isabella Castro,73,F,Pereira,Andina,2024-08-29,Básico
+309,Diego Martínez,28,M,Cali,Pacífica,2023-12-23,Básico
+310,Diego Moreno,23,M,Santa Marta,Caribe,2021-02-06,Plata
+311,Valentina Martínez,58,M,Santa Marta,Caribe,2023-06-12,Básico
+312,Andrés Gómez,55,F,Santa Marta,Caribe,2020-12-16,Plata
+313,Julián Pérez,71,F,Montería,Caribe,2024-08-17,Plata
+314,Luis Díaz,67,M,Medellín,Andina,2023-08-26,Básico
+315,Felipe Gómez,58,F,Villavicencio,Orinoquía,2022-10-16,Plata
+316,Diego Díaz,37,M,Santa Marta,Caribe,2021-05-16,Plata
+317,Daniela González,47,F,Pasto,Andina,2023-11-11,Básico
+318,Felipe Ramírez,47,F,Manizales,Andina,2021-11-27,Plata
+319,Camila Vargas,73,M,Bucaramanga,Andina,2022-03-27,Básico
+320,Isabella Torres,24,M,Bucaramanga,Andina,2021-05-10,Básico
+321,Paula López,27,F,Cartagena,Caribe,2020-04-13,Básico
+322,Julián Sánchez,33,F,Pereira,Andina,2024-07-24,Básico
+323,Camila López,66,F,Villavicencio,Orinoquía,2022-10-17,Oro
+324,Mateo Castro,37,M,Manizales,Andina,2020-02-17,Básico
+325,Isabella Ramírez,33,F,Pereira,Andina,2023-04-09,Básico
+326,Diego Ramírez,56,M,Bogotá,Andina,2021-08-08,Básico
+327,Felipe Martínez,74,M,Medellín,Andina,2024-01-29,Básico
+328,Santiago García,43,F,Pereira,Andina,2023-03-13,Básico
+329,Sebastián González,22,M,Bucaramanga,Andina,2022-10-29,Básico
+330,Valentina Moreno,57,F,Santa Marta,Caribe,2020-09-20,Oro
+331,Santiago Rojas,39,M,Pereira,Andina,2024-03-26,Básico
+332,Isabella Sánchez,50,F,Villavicencio,Orinoquía,2020-04-02,Básico
+333,Camila Rojas,48,M,Montería,Caribe,2020-11-01,Plata
+334,Laura Pérez,57,M,Santa Marta,Caribe,2020-11-28,Básico
+335,Diego Gómez,39,M,Villavicencio,Orinoquía,2023-12-22,Básico
+336,Ana Pérez,39,F,Manizales,Andina,2022-05-03,Básico
+337,Ana Gómez,48,M,Montería,Caribe,2023-09-04,Plata
+338,Natalia López,64,F,Villavicencio,Orinoquía,2023-04-10,Básico
+339,Julián Rojas,71,M,Santa Marta,Caribe,2020-10-29,Plata
+340,Luis Gómez,62,F,Barranquilla,Caribe,2021-01-25,Básico
+341,Felipe Martínez,44,F,Bucaramanga,Andina,2022-04-20,Básico
+342,Mateo Moreno,72,F,Villavicencio,Orinoquía,2023-12-16,Básico
+343,Sebastián Pérez,60,M,Barranquilla,Caribe,2022-12-12,Básico
+344,Paula Castro,52,M,Cali,Pacífica,2023-01-23,Básico
+345,Valentina Gómez,48,F,Montería,Caribe,2021-05-19,Básico
+346,Juan González,67,M,Cartagena,Caribe,2023-12-14,Básico
+347,Mateo Pérez,48,M,Montería,Caribe,2023-02-21,Oro
+348,Valentina González,25,M,Montería,Caribe,2022-03-19,Plata
+349,Diego García,36,F,Cali,Pacífica,2021-12-10,Oro
+350,Valentina Vargas,48,F,Pasto,Andina,2021-02-17,Plata
+351,Sebastián Vargas,35,F,Cartagena,Caribe,2020-08-11,Plata
+352,Juan López,21,F,Villavicencio,Orinoquía,2023-07-30,Básico
+353,Felipe Pérez,63,M,Medellín,Andina,2020-07-24,Plata
+354,Ana Torres,28,M,Cali,Pacífica,2023-08-30,Oro
+355,Mateo Díaz,30,M,Manizales,Andina,2021-10-19,Básico
+356,María Díaz,54,F,Bogotá,Andina,2022-12-31,Plata
+357,Andrés Sánchez,74,F,Bogotá,Andina,2020-03-15,Oro
+358,Mateo Martínez,65,M,Pereira,Andina,2024-11-30,Básico
+359,Natalia Gómez,24,M,Cartagena,Caribe,2021-08-05,Básico
+360,Sebastián Torres,49,F,Pasto,Andina,2024-10-08,Básico
+361,Sofía Rojas,25,M,Cartagena,Caribe,2020-11-28,Plata
+362,Valentina Vargas,29,F,Pasto,Andina,2024-02-17,Básico
+363,Natalia Díaz,66,F,Cartagena,Caribe,2020-12-25,Plata
+364,Daniela Moreno,45,M,Pasto,Andina,2020-06-26,Básico
+365,Andrés Martínez,48,M,Medellín,Andina,2021-05-23,Básico
+366,Juan Ramírez,66,M,Pereira,Andina,2021-11-06,Básico
+367,Natalia García,34,M,Montería,Caribe,2023-11-19,Básico
+368,Carlos Ramírez,37,F,Pasto,Andina,2022-04-10,Plata
+369,Diego Vargas,25,M,Montería,Caribe,2022-01-22,Plata
+370,Laura Ramírez,27,M,Barranquilla,Caribe,2024-03-11,Oro
+371,Felipe Vargas,53,M,Bucaramanga,Andina,2024-03-31,Básico
+372,Sofía Rojas,33,F,Pasto,Andina,2022-12-12,Básico
+373,Santiago Rodríguez,54,F,Montería,Caribe,2020-05-06,Plata
+374,Sofía Gómez,52,F,Santa Marta,Caribe,2020-12-02,Básico
+375,Paula Rodríguez,61,F,Santa Marta,Caribe,2024-01-08,Básico
+376,Isabella Ramírez,69,F,Medellín,Andina,2022-07-17,Básico
+377,Paula Gómez,21,M,Pereira,Andina,2023-10-09,Plata
+378,Ana Sánchez,34,F,Montería,Caribe,2024-03-07,Básico
+379,Luis Sánchez,40,F,Medellín,Andina,2023-01-13,Oro
+380,Mateo García,36,M,Medellín,Andina,2021-01-03,Plata
+381,Felipe Pérez,75,M,Pasto,Andina,2022-07-07,Plata
+382,Daniela Rodríguez,61,F,Pereira,Andina,2023-08-31,Plata
+383,Andrés Torres,43,F,Medellín,Andina,2024-01-30,Oro
+384,Ana González,47,M,Bogotá,Andina,2022-12-25,Básico
+385,Juan Ramírez,40,F,Barranquilla,Caribe,2021-07-18,Básico
+386,Carlos García,69,M,Montería,Caribe,2023-06-13,Plata
+387,Juan López,22,F,Bogotá,Andina,2023-05-01,Básico
+388,Luis López,65,F,Villavicencio,Orinoquía,2022-04-03,Básico
+389,Sofía Rojas,73,F,Santa Marta,Caribe,2020-10-13,Básico
+390,Juan Moreno,64,M,Cartagena,Caribe,2023-03-28,Básico
+391,Camila López,37,F,Pasto,Andina,2023-09-14,Básico
+392,Diego González,21,F,Pereira,Andina,2023-07-06,Plata
+393,Mateo García,40,M,Santa Marta,Caribe,2024-05-28,Básico
+394,Felipe Sánchez,27,M,Montería,Caribe,2022-02-09,Básico
+395,Mateo López,72,F,Santa Marta,Caribe,2021-09-07,Plata
+396,Paula Castro,21,M,Cali,Pacífica,2022-05-03,Básico
+397,Daniela López,34,F,Cali,Pacífica,2021-11-07,Plata
+398,Santiago Rodríguez,52,F,Manizales,Andina,2020-04-15,Básico
+399,Julián Gómez,20,F,Pasto,Andina,2021-01-20,Plata
+400,Sebastián López,48,F,Villavicencio,Orinoquía,2024-11-15,Oro
+401,Ana López,30,F,Cartagena,Caribe,2024-03-09,Oro
+402,Juan Vargas,56,F,Manizales,Andina,2022-03-23,Oro
+403,Camila Rojas,36,M,Santa Marta,Caribe,2022-08-12,Básico
+404,Diego González,41,M,Bucaramanga,Andina,2022-08-12,Básico
+405,Mateo Rojas,71,M,Montería,Caribe,2021-02-20,Básico
+406,Luis Gómez,73,F,Pereira,Andina,2024-02-27,Básico
+407,Sebastián Castro,55,M,Cartagena,Caribe,2021-08-27,Básico
+408,Juan Sánchez,54,F,Bucaramanga,Andina,2022-10-19,Básico
+409,Camila González,66,M,Pasto,Andina,2024-01-21,Plata
+410,Paula Martínez,64,M,Manizales,Andina,2020-12-12,Básico
+411,Mateo Martínez,74,F,Santa Marta,Caribe,2022-12-09,Básico
+412,Luis Rojas,18,M,Medellín,Andina,2020-10-08,Plata
+413,María Vargas,27,F,Barranquilla,Caribe,2021-03-23,Básico
+414,Luis Gómez,58,M,Bucaramanga,Andina,2023-09-12,Básico
+415,Sebastián Torres,44,F,Bogotá,Andina,2020-02-04,Básico
+416,Sebastián González,19,M,Cartagena,Caribe,2024-07-09,Oro
+417,Carlos Castro,24,F,Cali,Pacífica,2021-05-08,Básico
+418,Valentina Moreno,40,M,Santa Marta,Caribe,2024-06-16,Básico
+419,Daniela Ramírez,54,F,Bucaramanga,Andina,2023-11-28,Básico
+420,María Díaz,72,F,Pasto,Andina,2020-07-10,Básico
+421,Sebastián Ramírez,21,F,Pereira,Andina,2023-12-10,Básico
+422,Felipe Díaz,68,M,Manizales,Andina,2023-03-04,Oro
+423,Isabella Castro,20,F,Medellín,Andina,2021-03-08,Oro
+424,Natalia Ramírez,35,F,Montería,Caribe,2020-06-01,Plata
+425,Sebastián Gómez,60,F,Cartagena,Caribe,2021-01-02,Oro
+426,Ana López,55,F,Bucaramanga,Andina,2024-03-20,Plata
+427,María González,28,F,Pereira,Andina,2023-03-06,Plata
+428,Sebastián Pérez,42,F,Pereira,Andina,2024-06-06,Oro
+429,María Torres,65,M,Montería,Caribe,2020-04-19,Básico
+430,María Pérez,56,M,Barranquilla,Caribe,2024-05-03,Básico
+431,Valentina Rojas,46,M,Pasto,Andina,2021-04-12,Básico
+432,Felipe Martínez,61,M,Pereira,Andina,2020-06-24,Plata
+433,Juan Vargas,22,F,Cartagena,Caribe,2021-07-02,Básico
+434,Laura Vargas,42,M,Montería,Caribe,2022-01-08,Básico
+435,Diego Ramírez,41,M,Bogotá,Andina,2020-07-28,Básico
+436,Felipe Ramírez,53,M,Cali,Pacífica,2020-07-30,Básico
+437,Sebastián Rodríguez,56,M,Bucaramanga,Andina,2024-11-03,Básico
+438,Felipe Sánchez,67,F,Cartagena,Caribe,2024-01-24,Oro
+439,Natalia Torres,28,M,Barranquilla,Caribe,2020-12-13,Básico
+440,Valentina Ramírez,27,F,Cartagena,Caribe,2020-12-08,Básico
+441,Diego Ramírez,68,F,Pereira,Andina,2022-01-09,Básico
+442,Mateo Gómez,57,F,Barranquilla,Caribe,2022-07-26,Básico
+443,Ana Sánchez,39,M,Cartagena,Caribe,2024-07-04,Plata
+444,Camila Sánchez,70,F,Manizales,Andina,2021-09-07,Básico
+445,Sofía Ramírez,38,F,Montería,Caribe,2022-03-26,Oro
+446,Mateo Gómez,68,F,Cartagena,Caribe,2021-10-29,Básico
+447,Santiago Rodríguez,54,F,Pereira,Andina,2023-04-27,Oro
+448,Sebastián García,64,M,Cali,Pacífica,2023-12-21,Básico
+449,María Moreno,72,M,Cartagena,Caribe,2023-10-10,Básico
+450,Diego López,34,F,Pasto,Andina,2024-01-04,Básico
+451,María Ramírez,56,M,Pereira,Andina,2023-04-07,Básico
+452,Felipe Torres,20,M,Santa Marta,Caribe,2023-12-07,Plata
+453,Julián Díaz,23,F,Santa Marta,Caribe,2024-04-23,Básico
+454,Santiago Martínez,59,F,Pasto,Andina,2023-02-27,Oro
+455,Daniela Rojas,39,M,Pasto,Andina,2020-08-04,Básico
+456,Juan Torres,65,F,Cartagena,Caribe,2022-07-01,Básico
+457,Natalia Vargas,50,F,Manizales,Andina,2021-12-07,Oro
+458,Carlos González,44,F,Manizales,Andina,2020-08-25,Plata
+459,Laura Pérez,37,M,Montería,Caribe,2022-07-21,Plata
+460,Mateo Pérez,48,F,Santa Marta,Caribe,2022-06-16,Plata
+461,Camila Rodríguez,37,F,Manizales,Andina,2024-07-17,Plata
+462,Camila Díaz,24,F,Bogotá,Andina,2024-02-25,Básico
+463,Sebastián Martínez,39,M,Cali,Pacífica,2022-08-04,Básico
+464,Andrés Martínez,58,M,Pereira,Andina,2022-03-21,Básico
+465,Sofía Ramírez,55,M,Villavicencio,Orinoquía,2022-03-07,Básico
+466,Sofía González,66,F,Barranquilla,Caribe,2023-03-28,Básico
+467,Andrés Pérez,38,F,Santa Marta,Caribe,2022-07-26,Básico
+468,Mateo Torres,58,M,Pasto,Andina,2023-05-07,Básico
+469,Natalia Rodríguez,40,M,Pereira,Andina,2024-09-27,Básico
+470,Diego Castro,57,F,Cali,Pacífica,2023-10-08,Básico
+471,Juan González,25,F,Medellín,Andina,2022-02-03,Plata
+472,Daniela Sánchez,56,F,Santa Marta,Caribe,2023-03-23,Básico
+473,Mateo Díaz,52,F,Cali,Pacífica,2023-02-10,Básico
+474,Laura Martínez,38,M,Cartagena,Caribe,2023-06-22,Básico
+475,Ana Ramírez,26,F,Bucaramanga,Andina,2024-07-27,Básico
+476,Isabella Díaz,49,M,Santa Marta,Caribe,2023-11-03,Básico
+477,Paula Ramírez,28,F,Montería,Caribe,2023-03-03,Básico
+478,Diego García,35,F,Barranquilla,Caribe,2023-01-06,Básico
+479,Natalia Vargas,67,M,Manizales,Andina,2023-01-30,Básico
+480,Carlos González,67,M,Villavicencio,Orinoquía,2023-01-15,Plata
+481,Paula Torres,31,M,Bogotá,Andina,2020-07-28,Plata
+482,Juan González,73,F,Pasto,Andina,2022-07-10,Básico
+483,Paula Moreno,25,F,Medellín,Andina,2021-03-05,Plata
+484,Santiago Moreno,63,M,Villavicencio,Orinoquía,2020-12-05,Plata
+485,Sofía Rojas,21,M,Barranquilla,Caribe,2022-12-26,Básico
+486,Andrés Pérez,63,M,Santa Marta,Caribe,2021-08-15,Básico
+487,Carlos Martínez,66,M,Santa Marta,Caribe,2020-05-01,Oro
+488,Laura Vargas,73,F,Pasto,Andina,2021-05-26,Básico
+489,Juan Rojas,71,M,Bucaramanga,Andina,2022-09-29,Básico
+490,Valentina Díaz,44,M,Pasto,Andina,2022-07-14,Básico
+491,Daniela Torres,65,M,Medellín,Andina,2023-11-23,Oro
+492,Paula Ramírez,38,F,Bucaramanga,Andina,2024-11-14,Plata
+493,María Vargas,47,M,Montería,Caribe,2024-10-07,Básico
+494,Daniela López,45,F,Santa Marta,Caribe,2022-10-10,Básico
+495,Camila Torres,54,F,Cartagena,Caribe,2023-03-05,Plata
+496,Luis García,24,M,Bucaramanga,Andina,2020-02-03,Básico
+497,Paula Ramírez,18,M,Cali,Pacífica,2021-02-18,Oro
+498,Diego Martínez,73,M,Cali,Pacífica,2020-07-10,Plata
+499,María Pérez,60,F,Cartagena,Caribe,2020-04-16,Básico
+500,Juan Sánchez,59,F,Cartagena,Caribe,2023-12-12,Básico

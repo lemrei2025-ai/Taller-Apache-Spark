@@ -1,0 +1,8 @@
+# Dependencias del Taller de Apache Spark
+pyspark==4.3.0
+pandas>=2.0,<3.0
+pyarrow>=15.0
+numpy>=1.26
+matplotlib>=3.8
+jupyterlab>=4.0
+findspark>=2.0

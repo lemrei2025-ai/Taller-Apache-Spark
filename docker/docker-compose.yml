@@ -1,0 +1,75 @@
+# Cluster Spark Standalone para el taller
+#   docker compose up -d --build
+# UIs: Jupyter http://localhost:8888 (token: bigdata) | Master http://localhost:8080
+name: taller-spark
+
+x-spark-common: &spark-common
+  build:
+    context: .
+    dockerfile: Dockerfile
+  image: taller-spark:4.3.0
+  volumes:
+    - ../notebooks:/home/jovyan/work/notebooks
+    - ../data:/home/jovyan/work/data
+    - ../src:/home/jovyan/work/src
+    - ../ejercicios:/home/jovyan/work/ejercicios
+    - ../scripts:/home/jovyan/work/scripts
+  networks:
+    - spark-net
+
+services:
+  spark-master:
+    <<: *spark-common
+    container_name: spark-master
+    hostname: spark-master
+    command: >
+      spark-class org.apache.spark.deploy.master.Master
+      --host spark-master --port 7077 --webui-port 8080
+    ports:
+      - "8080:8080"
+      - "7077:7077"
+
+  spark-worker-1:
+    <<: *spark-common
+    container_name: spark-worker-1
+    hostname: spark-worker-1
+    depends_on: [spark-master]
+    environment:
+      SPARK_WORKER_CORES: "2"
+      SPARK_WORKER_MEMORY: "2g"
+    command: >
+      spark-class org.apache.spark.deploy.worker.Worker
+      spark://spark-master:7077 --webui-port 8081
+    ports:
+      - "8081:8081"
+
+  spark-worker-2:
+    <<: *spark-common
+    container_name: spark-worker-2
+    hostname: spark-worker-2
+    depends_on: [spark-master]
+    environment:
+      SPARK_WORKER_CORES: "2"
+      SPARK_WORKER_MEMORY: "2g"
+    command: >
+      spark-class org.apache.spark.deploy.worker.Worker
+      spark://spark-master:7077 --webui-port 8081
+    ports:
+      - "8082:8081"
+
+  jupyter:
+    <<: *spark-common
+    container_name: spark-jupyter
+    hostname: jupyter
+    depends_on: [spark-master]
+    environment:
+      SPARK_MASTER: "spark://spark-master:7077"
+      # El driver corre aquí: los executors deben poder alcanzarlo por este nombre
+      SPARK_DRIVER_HOST: "jupyter"
+    ports:
+      - "8888:8888"
+      - "4040:4040"
+
+networks:
+  spark-net:
+    driver: bridge

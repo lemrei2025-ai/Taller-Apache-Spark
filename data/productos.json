@@ -1,0 +1,40 @@
+{"id_producto": 101, "producto": "Portátil", "categoria": "Tecnología", "precio_unitario": 2800000, "stock": 109}
+{"id_producto": 102, "producto": "Celular", "categoria": "Tecnología", "precio_unitario": 1200000, "stock": 244}
+{"id_producto": 103, "producto": "Audífonos", "categoria": "Tecnología", "precio_unitario": 180000, "stock": 39}
+{"id_producto": 104, "producto": "Monitor", "categoria": "Tecnología", "precio_unitario": 750000, "stock": 67}
+{"id_producto": 105, "producto": "Teclado", "categoria": "Tecnología", "precio_unitario": 120000, "stock": 303}
+{"id_producto": 106, "producto": "Mouse", "categoria": "Tecnología", "precio_unitario": 60000, "stock": 115}
+{"id_producto": 107, "producto": "Tablet", "categoria": "Tecnología", "precio_unitario": 1100000, "stock": 265}
+{"id_producto": 108, "producto": "Disco SSD", "categoria": "Tecnología", "precio_unitario": 320000, "stock": 348}
+{"id_producto": 109, "producto": "Licuadora", "categoria": "Hogar", "precio_unitario": 250000, "stock": 227}
+{"id_producto": 110, "producto": "Cafetera", "categoria": "Hogar", "precio_unitario": 310000, "stock": 4}
+{"id_producto": 111, "producto": "Aspiradora", "categoria": "Hogar", "precio_unitario": 690000, "stock": 4}
+{"id_producto": 112, "producto": "Juego de ollas", "categoria": "Hogar", "precio_unitario": 420000, "stock": 356}
+{"id_producto": 113, "producto": "Lámpara", "categoria": "Hogar", "precio_unitario": 95000, "stock": 175}
+{"id_producto": 114, "producto": "Ventilador", "categoria": "Hogar", "precio_unitario": 210000, "stock": 418}
+{"id_producto": 115, "producto": "Sábanas", "categoria": "Hogar", "precio_unitario": 130000, "stock": 61}
+{"id_producto": 116, "producto": "Microondas", "categoria": "Hogar", "precio_unitario": 480000, "stock": 440}
+{"id_producto": 117, "producto": "Bicicleta", "categoria": "Deportes", "precio_unitario": 1500000, "stock": 216}
+{"id_producto": 118, "producto": "Balón", "categoria": "Deportes", "precio_unitario": 85000, "stock": 355}
+{"id_producto": 119, "producto": "Tenis running", "categoria": "Deportes", "precio_unitario": 380000, "stock": 67}
+{"id_producto": 120, "producto": "Mancuernas", "categoria": "Deportes", "precio_unitario": 160000, "stock": 244}
+{"id_producto": 121, "producto": "Colchoneta yoga", "categoria": "Deportes", "precio_unitario": 70000, "stock": 36}
+{"id_producto": 122, "producto": "Casco", "categoria": "Deportes", "precio_unitario": 140000, "stock": 117}
+{"id_producto": 123, "producto": "Raqueta", "categoria": "Deportes", "precio_unitario": 290000, "stock": 196}
+{"id_producto": 124, "producto": "Morral", "categoria": "Deportes", "precio_unitario": 150000, "stock": 45}
+{"id_producto": 125, "producto": "Novela", "categoria": "Libros", "precio_unitario": 55000, "stock": 374}
+{"id_producto": 126, "producto": "Libro técnico", "categoria": "Libros", "precio_unitario": 120000, "stock": 412}
+{"id_producto": 127, "producto": "Cómic", "categoria": "Libros", "precio_unitario": 40000, "stock": 52}
+{"id_producto": 128, "producto": "Diccionario", "categoria": "Libros", "precio_unitario": 75000, "stock": 52}
+{"id_producto": 129, "producto": "Libro infantil", "categoria": "Libros", "precio_unitario": 35000, "stock": 160}
+{"id_producto": 130, "producto": "Biografía", "categoria": "Libros", "precio_unitario": 65000, "stock": 188}
+{"id_producto": 131, "producto": "Atlas", "categoria": "Libros", "precio_unitario": 90000, "stock": 451}
+{"id_producto": 132, "producto": "Libro de cocina", "categoria": "Libros", "precio_unitario": 80000, "stock": 153}
+{"id_producto": 133, "producto": "Camiseta", "categoria": "Moda", "precio_unitario": 60000, "stock": 70}
+{"id_producto": 134, "producto": "Jean", "categoria": "Moda", "precio_unitario": 150000, "stock": 195}
+{"id_producto": 135, "producto": "Chaqueta", "categoria": "Moda", "precio_unitario": 280000, "stock": 396}
+{"id_producto": 136, "producto": "Zapatos", "categoria": "Moda", "precio_unitario": 230000, "stock": 416}
+{"id_producto": 137, "producto": "Gorra", "categoria": "Moda", "precio_unitario": 45000, "stock": 385}
+{"id_producto": 138, "producto": "Reloj", "categoria": "Moda", "precio_unitario": 350000, "stock": 447}
+{"id_producto": 139, "producto": "Gafas de sol", "categoria": "Moda", "precio_unitario": 190000, "stock": 68}
+{"id_producto": 140, "producto": "Bolso", "categoria": "Moda", "precio_unitario": 210000, "stock": 328}
