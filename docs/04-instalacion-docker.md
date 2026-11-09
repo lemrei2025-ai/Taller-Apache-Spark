@@ -66,6 +66,9 @@ spark = (SparkSession.builder
 spark.range(0, 10_000_000).selectExpr("sum(id)").show()
 ```
 
+Los datasets propios se copian en `data/mis_datos/` en el equipo; esa carpeta está montada en
+todos los contenedores, de modo que el maestro, los *workers* y JupyterLab ven los mismos archivos.
+
 Los cuadernos del taller leen la variable de entorno `SPARK_MASTER`. Dentro del contenedor esta
 variable tiene el valor `spark://spark-master:7077`, por lo que los cuadernos se conectan al clúster
 de forma automática; fuera de Docker utilizan `local[*]`.
@@ -78,7 +81,7 @@ En <http://localhost:8080> puede comprobarse que la aplicación TallerDocker fig
 ```bash
 docker compose exec jupyter spark-submit \
   --master spark://spark-master:7077 \
-  /home/jovyan/work/src/wordcount.py /home/jovyan/work/data/texto_bigdata.txt
+  /home/jovyan/work/src/wordcount.py /home/jovyan/work/data/ejemplo/texto_bigdata.txt
 ```
 
 ## Paso 5. Escalamiento de workers

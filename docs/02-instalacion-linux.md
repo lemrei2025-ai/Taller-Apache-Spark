@@ -118,7 +118,7 @@ $SPARK_HOME/sbin/start-master.sh
 $SPARK_HOME/sbin/start-worker.sh spark://$(hostname):7077 --cores 2 --memory 2g
 
 # Envío de un trabajo al clúster
-spark-submit --master spark://$(hostname):7077 src/wordcount.py data/texto_bigdata.txt
+spark-submit --master spark://$(hostname):7077 src/wordcount.py data/ejemplo/texto_bigdata.txt
 
 # Detención de los servicios
 $SPARK_HOME/sbin/stop-worker.sh

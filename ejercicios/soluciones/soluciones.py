@@ -1,119 +1,116 @@
 #!/usr/bin/env python3
 """
-Soluciones de referencia - Taller de Apache Spark.
+Soluciones de referencia del taller.
+
+Las soluciones son genéricas: se aplican al dataset configurado en data/dataset_config.json
+(por defecto, el dataset de ejemplo). Las columnas se eligen según los roles detectados.
 
 Ejecutar desde la raíz del repositorio:
     python ejercicios/soluciones/soluciones.py
-o
     spark-submit ejercicios/soluciones/soluciones.py
 """
 import os
 import re
 import shutil
+import sys
 import time
 from pathlib import Path
 
-from pyspark.sql import SparkSession
-from pyspark.sql import functions as F
-
 RAIZ = Path(__file__).resolve().parents[2]
-DATA = str(RAIZ / "data")
+sys.path.insert(0, str(RAIZ / "scripts"))
+from taller_spark import (cargar_desde_config, clasificar_columnas, columna_objetivo,  # noqa: E402
+                          iniciar_spark, ruta_absoluta, tamano_mb)
+from pyspark.sql import functions as F  # noqa: E402
 
-spark = (SparkSession.builder.appName("Soluciones")
-         .master(os.environ.get("SPARK_MASTER", "local[*]"))
-         .config("spark.sql.shuffle.partitions", "8")
-         .getOrCreate())
-spark.sparkContext.setLogLevel("ERROR")
+spark = iniciar_spark("Soluciones")
 sc = spark.sparkContext
 
 
 def titulo(t):
-    print("\n" + "=" * 70 + f"\n{t}\n" + "=" * 70)
+    print("\n" + "=" * 72 + f"\n{t}\n" + "=" * 72)
 
 
-# ------------------------------------------------------------------ datos
-ventas = spark.read.csv(f"{DATA}/ventas.csv", header=True, inferSchema=True)
-clientes = spark.read.csv(f"{DATA}/clientes.csv", header=True, inferSchema=True)
-productos = spark.read.json(f"{DATA}/productos.json")
-
-limpias = (ventas.filter(F.col("cantidad") > 0)
-           .fillna({"canal": "Desconocido"})
-           .withColumn("total", F.col("cantidad") * F.col("precio_unitario") * (1 - F.col("descuento")))
-           .withColumn("mes", F.month("fecha")))
-full = (limpias.join(productos, ["id_producto", "precio_unitario"], "left")
-        .join(clientes, "id_cliente", "left"))
-full.createOrReplaceTempView("ventas_full")
+df, cfg = cargar_desde_config(spark, version="auto")
+roles = clasificar_columnas(df, excluir=cfg["columnas_excluir"], max_categorias=cfg["max_categorias"])
+NUM, CAT, FEC, TXT = roles["numericas"], roles["categoricas"], roles["fechas"], roles["texto"]
+obj = columna_objetivo(cfg, df)
+CAT1 = CAT[0] if CAT else None
+CAT2 = CAT[1] if len(CAT) > 1 else None
+NUM1 = (obj if obj in NUM else NUM[0]) if NUM else None
+FECHA = FEC[0] if FEC else None
+tabla = cfg["nombre_tabla"]
+df.createOrReplaceTempView(tabla)
+print(f"CAT1={CAT1} | CAT2={CAT2} | NUM1={NUM1} | FECHA={FECHA}")
 
 # ------------------------------------------------------------------ E1
-titulo("E1 · RDD: palabras del texto")
-palabras = sc.textFile(f"{DATA}/texto_bigdata.txt") \
-             .flatMap(lambda l: re.findall(r"\w+", l.lower()))
-palabras.cache()
-print("a) Total de palabras   :", palabras.count())
-print("   Palabras distintas  :", palabras.distinct().count())
-iniciales = (palabras.map(lambda p: (p[0], 1))
-             .reduceByKey(lambda a, b: a + b)
+titulo("E1 · RDD: valores distintos y conteo de palabras")
+if CAT1:
+    valores = df.select(CAT1).rdd.map(lambda r: r[0])
+    print(f"a) Valores distintos de {CAT1}: {valores.distinct().count()}")
+lineas = (df.select(TXT[0]).dropna().rdd.map(lambda r: str(r[0])) if TXT
+          else sc.textFile(str(ruta_absoluta("data/ejemplo/texto_bigdata.txt"))))
+palabras = lineas.flatMap(lambda l: re.findall(r"\w+", l.lower())).cache()
+print(f"b) Palabras: {palabras.count()} | distintas: {palabras.distinct().count()}")
+iniciales = (palabras.map(lambda p: (p[0], 1)).reduceByKey(lambda a, b: a + b)
              .takeOrdered(5, key=lambda kv: -kv[1]))
-print("b) Top 5 letras iniciales:", iniciales)
+print("   Letras iniciales más frecuentes:", iniciales)
 
 # ------------------------------------------------------------------ E2
-titulo("E2 · Ingreso por mes y canal (pivote, millones COP)")
-(limpias.groupBy("mes").pivot("canal")
- .agg(F.round(F.sum("total") / 1e6, 1))
- .orderBy("mes")
- .show(12))
+titulo("E2 · Tabla dinámica")
+if CAT1 and NUM1:
+    if FECHA:
+        base, filas = df.withColumn("mes", F.month(FECHA)), "mes"     # meses en filas
+    else:
+        base, filas = df, (CAT2 or CAT1)                              # segunda categoría en filas
+    (base.groupBy(filas).pivot(CAT1).agg(F.sum(NUM1).cast("decimal(22,0)"))     # CAT1 en columnas
+         .orderBy(filas).show(13, truncate=False))
 
 # ------------------------------------------------------------------ E3
-titulo("E3 · Top 10 clientes por gasto")
-(full.groupBy("id_cliente", "nombre", "ciudad", "segmento")
- .agg(F.count("*").alias("compras"), F.round(F.sum("total")).cast("long").alias("gasto_total"))
- .orderBy(F.desc("gasto_total"))
- .show(10, truncate=False))
+titulo("E3 · Diez grupos con mayor suma")
+if CAT1 and NUM1:
+    grupo = [c for c in (CAT1, CAT2) if c]
+    (df.groupBy(*grupo)
+       .agg(F.count("*").alias("registros"), F.sum(NUM1).cast("decimal(22,2)").alias("suma"))
+       .orderBy(F.desc("suma")).show(10, truncate=False))
 
 # ------------------------------------------------------------------ E4
-titulo("E4 · Calidad de datos")
-ventas.agg(
-    F.sum(F.col("cantidad").isNull().cast("int")).alias("cantidad_nula"),
-    F.sum((F.col("cantidad") < 0).cast("int")).alias("cantidad_negativa"),
-    F.sum(F.col("canal").isNull().cast("int")).alias("canal_nulo"),
-    F.count("*").alias("total_registros"),
-).show()
+titulo("E4 · Reporte de calidad")
+reglas = [F.sum(F.col(c).isNull().cast("int")).alias(f"nulos_{c}") for c in df.columns]
+reglas += [F.sum((F.col(c) < 0).cast("int")).alias(f"negativos_{c}") for c in NUM]
+reporte = df.agg(*reglas).first().asDict()
+print({k: v for k, v in reporte.items() if v})
+print("Duplicados exactos:", df.count() - df.dropDuplicates().count())
 
 # ------------------------------------------------------------------ E5
-titulo("E5 · Categoría con más ingresos por región (SQL)")
-spark.sql("""
-WITH t AS (
-    SELECT region, categoria, SUM(total) AS ingresos
-    FROM ventas_full GROUP BY region, categoria
-)
-SELECT region, categoria, ROUND(ingresos / 1e6, 1) AS ingresos_mill
-FROM (SELECT *, ROW_NUMBER() OVER (PARTITION BY region ORDER BY ingresos DESC) AS rn FROM t)
-WHERE rn = 1
-ORDER BY ingresos_mill DESC
-""").show()
+titulo("E5 · Categoría con mayor suma dentro de cada grupo (ROW_NUMBER)")
+if CAT1 and CAT2 and NUM1:
+    spark.sql(f"""
+    WITH t AS (SELECT `{CAT1}`, `{CAT2}`, SUM(`{NUM1}`) AS suma FROM {tabla} GROUP BY 1, 2)
+    SELECT `{CAT1}`, `{CAT2}`, CAST(suma AS DECIMAL(22,2)) AS suma
+    FROM (SELECT *, ROW_NUMBER() OVER (PARTITION BY `{CAT1}` ORDER BY suma DESC) AS rn FROM t)
+    WHERE rn = 1 ORDER BY suma DESC
+    """).show(truncate=False)
 
 # ------------------------------------------------------------------ E6
-titulo("E6 · Crecimiento mensual (SQL)")
-spark.sql("""
-WITH m AS (SELECT mes, SUM(total) AS ingresos FROM ventas_full GROUP BY mes)
-SELECT mes,
-       ROUND(ingresos / 1e6, 1) AS ingresos_mill,
-       ROUND(100 * (ingresos - LAG(ingresos) OVER (ORDER BY mes))
-                 / LAG(ingresos) OVER (ORDER BY mes), 1) AS crecimiento_pct
-FROM m ORDER BY mes
-""").show(12)
+titulo("E6 · Variación mensual (LAG)")
+if FECHA and NUM1:
+    spark.sql(f"""
+    WITH m AS (SELECT DATE_TRUNC('month', `{FECHA}`) AS periodo, SUM(`{NUM1}`) AS s
+               FROM {tabla} WHERE `{FECHA}` IS NOT NULL GROUP BY 1)
+    SELECT DATE_FORMAT(periodo, 'yyyy-MM') AS mes, CAST(s AS DECIMAL(22,2)) AS suma,
+           ROUND(100 * (s - LAG(s) OVER (ORDER BY periodo)) / LAG(s) OVER (ORDER BY periodo), 1) AS variacion_pct
+    FROM m ORDER BY periodo
+    """).show(36)
+else:
+    print("El dataset no tiene fecha o variable numérica.")
 
 # ------------------------------------------------------------------ E7
-titulo("E7 · CSV vs Parquet (con el dataset actual)")
-tmp = RAIZ / "salida" / "e7"
+titulo("E7 · CSV frente a Parquet")
+tmp = RAIZ / "data" / "procesado" / "_e7"
 shutil.rmtree(tmp, ignore_errors=True)
-limpias.write.mode("overwrite").option("header", True).csv(str(tmp / "csv"))
-limpias.write.mode("overwrite").parquet(str(tmp / "parquet"))
-
-
-def mb(ruta):
-    return sum(f.stat().st_size for f in Path(ruta).rglob("*") if f.is_file()
-               and not f.name.endswith(".crc")) / 1024 ** 2
+simple = df.select([c for c, t in df.dtypes if not t.startswith(("array", "struct", "map"))])
+simple.write.mode("overwrite").option("header", True).csv(str(tmp / "csv"))
+simple.write.mode("overwrite").parquet(str(tmp / "parquet"))
 
 
 def medir(fn):
@@ -122,16 +119,17 @@ def medir(fn):
     return time.time() - t
 
 
-t_csv = medir(lambda: spark.read.csv(str(tmp / "csv"), header=True, inferSchema=True)
-              .groupBy("canal").agg(F.sum("total")).collect())
-t_pq = medir(lambda: spark.read.parquet(str(tmp / "parquet"))
-             .groupBy("canal").agg(F.sum("total")).collect())
-print(f"a) Tiempo  CSV: {t_csv:.2f} s | Parquet: {t_pq:.2f} s")
-print(f"b) Tamaño  CSV: {mb(tmp / 'csv'):.2f} MB | Parquet: {mb(tmp / 'parquet'):.2f} MB")
+if NUM1:
+    t_csv = medir(lambda: spark.read.csv(str(tmp / "csv"), header=True, inferSchema=True)
+                  .agg(F.sum(NUM1)).collect())
+    t_pq = medir(lambda: spark.read.parquet(str(tmp / "parquet")).agg(F.sum(NUM1)).collect())
+    print(f"a) Tiempo  CSV: {t_csv:.2f} s | Parquet: {t_pq:.2f} s")
+print(f"b) Tamaño  CSV: {tamano_mb(tmp / 'csv'):.2f} MB | Parquet: {tamano_mb(tmp / 'parquet'):.2f} MB")
 print("""c) Parquet es un formato columnar: lee solo las columnas que requiere la consulta,
    comprime mejor porque los valores de una misma columna son homogéneos, conserva el
    esquema (no es necesario inferirlo) y almacena estadísticas (mínimo/máximo) que permiten
-   omitir bloques completos (predicate pushdown) (The Apache Software Foundation, s.f.).
-   CSV, en cambio, obliga a leer e interpretar todo el texto.""")
+   omitir bloques completos (The Apache Software Foundation, s.f.). CSV, en cambio, obliga
+   a leer e interpretar todo el texto.""")
+shutil.rmtree(tmp, ignore_errors=True)
 
 spark.stop()

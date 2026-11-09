@@ -23,12 +23,32 @@ import os
 os.environ["JAVA_HOME"] = "/usr/lib/jvm/java-17-openjdk-amd64"
 ```
 
-## Paso 3. Obtención de los datos del taller
+## Paso 3. Obtención del taller
+
+Los cuadernos del taller ubican automáticamente su carpeta. Al abrir un cuaderno del repositorio
+en Colab, basta con escribir en la variable `REPO_URL` de la celda de preparación la dirección del
+repositorio (reemplazando `<usuario>`): si el taller no está descargado, la celda lo clona en
+`/content/taller-apache-spark`. También puede clonarse de forma manual:
 
 ```python
-!git clone -q https://github.com/<usuario>/taller-apache-spark.git
-%cd taller-apache-spark
+!git clone -q https://github.com/<usuario>/taller-apache-spark.git /content/taller-apache-spark
+%cd /content/taller-apache-spark/notebooks
 ```
+
+La celda de preparación también encuentra el taller si se clonó con otro nombre dentro de
+`/content` o si se copió en Google Drive (`/content/drive/MyDrive/`), e instala en Colab las
+dependencias que falten (PySpark 4.x y openpyxl).
+
+Si aparece el error `Input path does not exist: file:/data/...`, se está usando una versión
+anterior de los cuadernos: debe actualizarse el repositorio en GitHub (véase la guía
+[07-subir-a-github.md](07-subir-a-github.md)) y abrir de nuevo el cuaderno.
+
+No deben utilizarse rutas relativas como `"../data"` fuera de la celda de preparación: en Colab
+la carpeta de trabajo inicial es `/content`, de modo que `"../data"` apunta a `/data`, que no
+existe, y Spark responde con el error `Input path does not exist: file:/data/...`.
+
+Para analizar un dataset propio en Colab, se carga el archivo con la celda correspondiente del
+cuaderno 00 (`files.upload()`), que lo guarda en `data/mis_datos/`.
 
 ## Paso 4. Creación de la sesión
 

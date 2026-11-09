@@ -1,15 +1,17 @@
 #!/usr/bin/env python3
 """
-Genera los datasets sintéticos del taller en la carpeta data/.
+Genera el dataset de ejemplo del taller en data/ejemplo/.
 
-  data/clientes.csv      - 500 clientes
-  data/productos.json    - 40 productos (JSON Lines)
-  data/ventas.csv        - N ventas (por defecto 20.000) del año 2025
-  data/texto_bigdata.txt - texto para el conteo de palabras
+  data/ejemplo/ventas_tienda.csv   N ventas (por defecto 20 000) del año 2025, en una sola tabla
+  data/ejemplo/texto_bigdata.txt   texto para el conteo de palabras (cuaderno 02)
+
+El dataset incluye, de forma intencional, problemas de calidad para practicar la limpieza:
+valores faltantes, cantidades negativas, filas duplicadas y textos con espacios o
+mayúsculas inconsistentes.
 
 Uso:
-  python scripts/generar_datos.py              # 20.000 ventas
-  python scripts/generar_datos.py --ventas 1000000   # dataset grande para pruebas de rendimiento
+  python scripts/generar_datos.py                     # 20 000 ventas
+  python scripts/generar_datos.py --ventas 2000000    # dataset grande para pruebas de rendimiento
 """
 import argparse
 import csv
@@ -76,69 +78,57 @@ millones de registros con unas pocas líneas de código en Python, Scala, Java, 
 
 def main(n_ventas: int, semilla: int = 42) -> None:
     random.seed(semilla)
-    DATA.mkdir(exist_ok=True)
+    destino = DATA / "ejemplo"
+    destino.mkdir(parents=True, exist_ok=True)
 
-    # Clientes ---------------------------------------------------------------
     clientes = []
     for i in range(1, 501):
         ciudad = random.choice(list(CIUDADES))
-        clientes.append({
-            "id_cliente": i,
-            "nombre": f"{random.choice(NOMBRES)} {random.choice(APELLIDOS)}",
-            "edad": random.randint(18, 75),
-            "genero": random.choice(["F", "M"]),
-            "ciudad": ciudad,
-            "region": CIUDADES[ciudad],
-            "fecha_registro": (date(2020, 1, 1) + timedelta(days=random.randint(0, 1800))).isoformat(),
-            "segmento": random.choices(["Básico", "Plata", "Oro"], weights=[60, 30, 10])[0],
-        })
-    with open(DATA / "clientes.csv", "w", newline="", encoding="utf-8") as f:
-        w = csv.DictWriter(f, fieldnames=clientes[0].keys())
-        w.writeheader()
-        w.writerows(clientes)
+        clientes.append({"ciudad": ciudad, "region": CIUDADES[ciudad],
+                         "edad": random.randint(18, 75), "genero": random.choice(["F", "M"]),
+                         "segmento": random.choices(["Básico", "Plata", "Oro"], weights=[60, 30, 10])[0]})
+    productos = [(cat, nombre, precio) for cat, items in CATEGORIAS.items() for nombre, precio in items]
 
-    # Productos (JSON Lines) -------------------------------------------------
-    productos = []
-    pid = 100
-    for cat, items in CATEGORIAS.items():
-        for nombre, precio in items:
-            pid += 1
-            productos.append({"id_producto": pid, "producto": nombre, "categoria": cat,
-                              "precio_unitario": precio, "stock": random.randint(0, 500)})
-    with open(DATA / "productos.json", "w", encoding="utf-8") as f:
-        for p in productos:
-            f.write(json.dumps(p, ensure_ascii=False) + "\n")
-
-    # Ventas -----------------------------------------------------------------
+    columnas = ["id_venta", "fecha", "ciudad", "region", "canal", "metodo_pago", "categoria",
+                "producto", "cantidad", "precio_unitario", "descuento", "edad_cliente",
+                "genero_cliente", "segmento_cliente", "total"]
     inicio = date(2025, 1, 1)
-    with open(DATA / "ventas.csv", "w", newline="", encoding="utf-8") as f:
+    filas = []
+    for i in range(1, n_ventas + 1):
+        cli = random.choice(clientes)
+        cat, prod, precio = random.choice(productos)
+        dia = inicio + timedelta(days=random.randint(0, 364))
+        if random.random() < 0.08:                       # temporada alta de diciembre
+            dia = date(2025, 12, random.randint(1, 31))
+        cantidad = random.choices([1, 2, 3, 4, 5], weights=[55, 25, 10, 6, 4])[0]
+        descuento = random.choice([0, 0, 0, 0.05, 0.10, 0.15, 0.20])
+        total = round(cantidad * precio * (1 - descuento), 2)
+        fila = [i, dia.isoformat(), cli["ciudad"], cli["region"], random.choice(CANALES),
+                random.choice(METODOS), cat, prod, cantidad, precio, descuento, cli["edad"],
+                cli["genero"], cli["segmento"], total]
+        r = random.random()                              # problemas de calidad (~2 %)
+        if r < 0.004:
+            fila[8] = ""; fila[14] = ""                  # cantidad y total faltantes
+        elif r < 0.007:
+            fila[8] = -cantidad; fila[14] = -total       # cantidad negativa (error de digitación)
+        elif r < 0.010:
+            fila[4] = ""                                 # canal faltante
+        elif r < 0.014:
+            fila[2] = random.choice([fila[2].upper(), " " + fila[2], fila[2].lower() + " "])
+        elif r < 0.016:
+            fila[11] = ""                                # edad faltante
+        filas.append(fila)
+        if random.random() < 0.005:                      # fila duplicada
+            filas.append(list(fila))
+
+    with open(destino / "ventas_tienda.csv", "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
-        w.writerow(["id_venta", "fecha", "id_cliente", "id_producto", "cantidad",
-                    "precio_unitario", "descuento", "canal", "metodo_pago"])
-        for i in range(1, n_ventas + 1):
-            p = random.choice(productos)
-            dia = inicio + timedelta(days=random.randint(0, 364))
-            # Temporada alta en diciembre: más ventas
-            if random.random() < 0.08:
-                dia = date(2025, 12, random.randint(1, 31))
-            cantidad = random.choices([1, 2, 3, 4, 5], weights=[55, 25, 10, 6, 4])[0]
-            descuento = random.choice([0, 0, 0, 0.05, 0.10, 0.15, 0.20])
-            fila = [i, dia.isoformat(), random.randint(1, 500), p["id_producto"], cantidad,
-                    p["precio_unitario"], descuento, random.choice(CANALES), random.choice(METODOS)]
-            # ~1 % de registros "sucios" para practicar limpieza
-            r = random.random()
-            if r < 0.004:
-                fila[4] = ""          # cantidad faltante
-            elif r < 0.007:
-                fila[4] = -cantidad   # cantidad negativa (error)
-            elif r < 0.010:
-                fila[7] = ""          # canal faltante
-            w.writerow(fila)
+        w.writerow(columnas)
+        w.writerows(filas)
+    (destino / "texto_bigdata.txt").write_text(TEXTO, encoding="utf-8")
 
-    (DATA / "texto_bigdata.txt").write_text(TEXTO, encoding="utf-8")
-
-    print(f"Datos generados en {DATA}:")
-    for archivo in sorted(DATA.iterdir()):
+    print(f"Datos generados en {destino}:")
+    for archivo in sorted(destino.iterdir()):
         print(f"  {archivo.name:22s} {archivo.stat().st_size / 1024:8.1f} KB")
 
 

@@ -1,21 +1,38 @@
 #!/usr/bin/env python3
 """
-Verifica que el entorno del taller esté listo:
-  - Versión de Python
-  - Java disponible y versión >= 17
+Verifica que el entorno del taller esté listo y corrige automáticamente la
+configuración de Java cuando es posible:
+  - Versión de Python (3.10 a 3.14)
+  - Java 17 o 21. Si JAVA_HOME apunta a otra versión (por ejemplo, Java 8) o a una
+    instalación dañada, se busca un JDK compatible que funcione, se activa y se guardan
+    JAVA_HOME y el Path. Si no existe ninguno, se ofrece instalar Eclipse Temurin 17.
   - PySpark importable
   - Una SparkSession se crea y ejecuta un trabajo
   - Lectura/escritura de archivos (Parquet) funciona
 
-Uso:  python scripts/verificar_instalacion.py
+Uso:
+  python scripts/verificar_instalacion.py                 # verifica y corrige
+  python scripts/verificar_instalacion.py --instalar-java # instala Java 17 sin preguntar
+  python scripts/verificar_instalacion.py --reinstalar-java  # reinstala Java 17
+  python scripts/verificar_instalacion.py --sistema       # Windows (administrador): variables del sistema
+  python scripts/verificar_instalacion.py --solo-sesion   # no guarda cambios permanentes
 """
+import argparse
 import os
 import platform
-import re
 import shutil
-import subprocess
 import sys
 import tempfile
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from configurar_java import asegurar_java, diagnostico  # noqa: E402
+
+ap = argparse.ArgumentParser()
+ap.add_argument("--instalar-java", action="store_true", help="instala Java 17 si no se encuentra")
+ap.add_argument("--reinstalar-java", action="store_true", help="reinstala Java 17 aunque exista")
+ap.add_argument("--sistema", action="store_true", help="Windows (administrador): corrige variables del sistema")
+ap.add_argument("--solo-sesion", action="store_true", help="no guarda JAVA_HOME de forma permanente")
+args = ap.parse_args()
 
 OK, FAIL, WARN, INFO = "[OK]   ", "[ERROR]", "[AVISO]", "[INFO] "
 errores = 0
@@ -32,32 +49,20 @@ linea(INFO, f"Sistema operativo: {platform.system()} {platform.release()} ({plat
 
 # 1. Python ------------------------------------------------------------------
 v = sys.version_info
-if v >= (3, 10):
+if (3, 10) <= v[:2] <= (3, 14):
     linea(OK, f"Python {v.major}.{v.minor}.{v.micro}  ({sys.executable})")
+elif v[:2] > (3, 14):
+    linea(WARN, f"Python {v.major}.{v.minor} es más reciente que las versiones probadas (3.10 a 3.14).")
 else:
     linea(FAIL, f"Python {v.major}.{v.minor} detectado. Se requiere 3.10 o superior.")
     errores += 1
 
-# 2. Java --------------------------------------------------------------------
-java = shutil.which("java")
-if os.environ.get("JAVA_HOME"):
-    candidato = os.path.join(os.environ["JAVA_HOME"], "bin", "java")
-    if shutil.which(candidato):
-        java = candidato
-if not java:
-    linea(FAIL, "Java no encontrado. Se requiere instalar JDK 17 o 21 y configurar JAVA_HOME.")
+# 2. Java (detección y corrección automática) ---------------------------------
+home = asegurar_java(persistir=not args.solo_sesion, instalar=args.instalar_java, preguntar=True,
+                     reinstalar=args.reinstalar_java, sistema=args.sistema)
+if home is None:
     errores += 1
-else:
-    salida = subprocess.run([java, "-version"], capture_output=True, text=True).stderr
-    m = re.search(r'version "(\d+)(?:\.(\d+))?', salida)
-    mayor = int(m.group(1)) if m else 0
-    if mayor == 1 and m and m.group(2):  # formato antiguo 1.8
-        mayor = int(m.group(2))
-    if mayor >= 17:
-        linea(OK, f"Java {mayor}  ({java})")
-    else:
-        linea(FAIL, f"Java {mayor} detectado. Spark 4.x requiere Java 17 o 21.")
-        errores += 1
+    diagnostico()
 linea(INFO, f"JAVA_HOME  = {os.environ.get('JAVA_HOME', '(no definido)')}")
 linea(INFO, f"SPARK_HOME = {os.environ.get('SPARK_HOME', '(no definido - se usará PySpark de pip)')}")
 if platform.system() == "Windows":

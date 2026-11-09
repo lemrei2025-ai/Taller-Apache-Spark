@@ -3,9 +3,9 @@
 Conteo de palabras (WordCount) - el "Hola Mundo" de Big Data.
 
 Ejecutar:
-  spark-submit src/wordcount.py data/texto_bigdata.txt
-  spark-submit --master local[4] src/wordcount.py data/texto_bigdata.txt salida/wordcount
-  spark-submit --master spark://spark-master:7077 src/wordcount.py data/texto_bigdata.txt
+  spark-submit src/wordcount.py data/ejemplo/texto_bigdata.txt
+  spark-submit --master local[4] src/wordcount.py data/ejemplo/texto_bigdata.txt data/procesado/wordcount
+  spark-submit --master spark://spark-master:7077 src/wordcount.py data/ejemplo/texto_bigdata.txt
 """
 import re
 import sys

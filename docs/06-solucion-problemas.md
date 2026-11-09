@@ -12,17 +12,29 @@ python scripts/verificar_instalacion.py
 | Síntoma | Causa | Solución |
 |---------|-------|----------|
 | `JAVA_HOME is not set` / `java: command not found` | Java no está instalado o no se encuentra en el PATH | Instalar JDK 17 o 21 y configurar `JAVA_HOME` |
-| `UnsupportedClassVersionError` / `Unsupported class file major version` | Versión de Java anterior a la requerida | Spark 4.x requiere Java 17 o 21 (The Apache Software Foundation [ASF], 2026a) |
+| `UnsupportedClassVersionError` / `Unsupported class file major version` / `[ERROR] Java 8 detectado` | `JAVA_HOME` apunta a una versión anterior a la requerida | Ejecutar `python scripts/configurar_java.py --instalar`: localiza o instala un JDK 17/21 y corrige `JAVA_HOME`. Spark 4.x requiere Java 17 o 21 (The Apache Software Foundation [ASF], 2026a) |
 | `IllegalAccessError ... module java.base does not export` | Versión de Java no soportada | Utilizar JDK 17 o 21 |
+| `java -version` muestra Java 8 aunque `JAVA_HOME` es 17 (Windows) | El `Path` del sistema tiene Java 8 antes que el del usuario | Spark funciona igualmente; para corregirlo, `python scripts/configurar_java.py --sistema` como administrador |
+| `[AVISO] Java 17 en ... no funciona correctamente` | Instalación dañada o incompleta | `python scripts/configurar_java.py --reinstalar` |
+| Diagnóstico general de Java | — | `python scripts/configurar_java.py --diagnostico` |
 
 ## Python y PySpark
 
 | Síntoma | Solución |
 |---------|----------|
+| `[notice] A new release of pip is available` | Aviso informativo; se elimina con `python -m pip install --upgrade pip` (los scripts `preparar_entorno*` lo hacen automáticamente) |
 | `ModuleNotFoundError: No module named 'pyspark'` | Activar el entorno virtual: `source .venv/bin/activate` o `.venv\Scripts\Activate.ps1` |
 | `Python in worker has different version than that in driver` | Definir `PYSPARK_PYTHON` y `PYSPARK_DRIVER_PYTHON` con el mismo intérprete |
 | `Python worker failed to connect back` (Windows) | Definir `PYSPARK_PYTHON=python` y revisar el cortafuegos o el antivirus |
 | La versión de `pyspark` no coincide con la de `SPARK_HOME` | Igualar ambas versiones o eliminar `SPARK_HOME` para usar la copia instalada con pip |
+
+## Rutas y datasets
+
+| Síntoma | Solución |
+|---------|----------|
+| `Input path does not exist: file:/data/...` (frecuente en Google Colab) | La ruta relativa se calculó desde otra carpeta. Usar la versión actual de los cuadernos, cuya celda de preparación ubica la carpeta del taller; en Colab, completar `REPO_URL` |
+| `No se encontró la carpeta del taller` | Abrir el cuaderno desde `notebooks/` del repositorio o completar `REPO_URL` en Colab |
+| Una sola columna, caracteres extraños o números como texto | Revisar el diagnóstico del cuaderno 01 y la guía [09-carga-de-datasets.md](09-carga-de-datasets.md) |
 
 ## Windows
 

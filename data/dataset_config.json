@@ -1,0 +1,21 @@
+{
+  "nombre": "ventas_tienda",
+  "descripcion": "Dataset de ejemplo: ventas de una tienda en ciudades de Colombia (sintético).",
+  "ruta": "data/ejemplo/ventas_tienda.csv",
+  "formato": "auto",
+  "separador": "auto",
+  "encabezado": true,
+  "codificacion": "auto",
+  "decimal": "auto",
+  "multilinea": false,
+  "hoja_excel": 0,
+  "columna_fecha": "fecha",
+  "formato_fecha": null,
+  "columna_objetivo": "total",
+  "columnas_excluir": [
+    "id_venta"
+  ],
+  "max_categorias": 50,
+  "nombre_tabla": "datos",
+  "ruta_limpia": null
+}

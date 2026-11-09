@@ -5,23 +5,35 @@ cuadernos remiten a esta lista.
 
 ## Artículos científicos
 
+Breiman, L. (2001). Random forests. *Machine Learning, 45*(1), 5–32. https://doi.org/10.1023/A:1010933404324
+
 Armbrust, M., Das, T., Torres, J., Yavuz, B., Zhu, S., Xin, R., Ghodsi, A., Stoica, I., & Zaharia, M. (2018). Structured streaming: A declarative API for real-time applications in Apache Spark. En *Proceedings of the 2018 International Conference on Management of Data* (pp. 601–613). ACM. https://doi.org/10.1145/3183713.3190664
 
 Armbrust, M., Xin, R. S., Lian, C., Huai, Y., Liu, D., Bradley, J. K., Meng, X., Kaftan, T., Franklin, M. J., Ghodsi, A., & Zaharia, M. (2015). Spark SQL: Relational data processing in Spark. En *Proceedings of the 2015 ACM SIGMOD International Conference on Management of Data* (pp. 1383–1394). ACM. https://doi.org/10.1145/2723372.2742797
+
+Kluyver, T., Ragan-Kelley, B., Pérez, F., Granger, B., Bussonnier, M., Frederic, J., Kelley, K., Hamrick, J., Grout, J., Corlay, S., Ivanov, P., Avila, D., Abdalla, S., Willing, C., & Jupyter Development Team. (2016). Jupyter Notebooks: A publishing format for reproducible computational workflows. En F. Loizides & B. Schmidt (Eds.), *Positioning and power in academic publishing: Players, agents and agendas* (pp. 87–90). IOS Press. https://doi.org/10.3233/978-1-61499-649-1-87
 
 Dean, J., & Ghemawat, S. (2008). MapReduce: Simplified data processing on large clusters. *Communications of the ACM, 51*(1), 107–113. https://doi.org/10.1145/1327452.1327492
 
 Meng, X., Bradley, J., Yavuz, B., Sparks, E., Venkataraman, S., Liu, D., Freeman, J., Tsai, D. B., Amde, M., Owen, S., Xin, D., Xin, R., Franklin, M. J., Zadeh, R., Zaharia, M., & Talwalkar, A. (2016). MLlib: Machine learning in Apache Spark. *Journal of Machine Learning Research, 17*(34), 1–7. https://jmlr.org/papers/v17/15-237.html
 
+Rousseeuw, P. J. (1987). Silhouettes: A graphical aid to the interpretation and validation of cluster analysis. *Journal of Computational and Applied Mathematics, 20*, 53–65. https://doi.org/10.1016/0377-0427(87)90125-7
+
+Wickham, H. (2014). Tidy data. *Journal of Statistical Software, 59*(10), 1–23. https://doi.org/10.18637/jss.v059.i10
+
 Zaharia, M., Chowdhury, M., Das, T., Dave, A., Ma, J., McCauley, M., Franklin, M. J., Shenker, S., & Stoica, I. (2012). Resilient distributed datasets: A fault-tolerant abstraction for in-memory cluster computing. En *Proceedings of the 9th USENIX Symposium on Networked Systems Design and Implementation* (pp. 15–28). USENIX Association.
 
 Zaharia, M., Xin, R. S., Wendell, P., Das, T., Armbrust, M., Dave, A., Meng, X., Rosen, J., Venkataraman, S., Franklin, M. J., Ghodsi, A., Gonzalez, J., Shenker, S., & Stoica, I. (2016). Apache Spark: A unified engine for big data processing. *Communications of the ACM, 59*(11), 56–65. https://doi.org/10.1145/2934664
 
-## Libros
+## Libros y manuales
+
+American Psychological Association. (2020). *Publication manual of the American Psychological Association* (7.ª ed.). https://doi.org/10.1037/0000165-000
 
 Chambers, B., & Zaharia, M. (2018). *Spark: The definitive guide. Big data processing made simple*. O'Reilly Media.
 
 Damji, J. S., Wenig, B., Das, T., & Lee, D. (2020). *Learning Spark: Lightning-fast data analytics* (2.ª ed.). O'Reilly Media.
+
+Tukey, J. W. (1977). *Exploratory data analysis*. Addison-Wesley.
 
 ## Informes técnicos
 
@@ -31,7 +43,13 @@ Laney, D. (2001). *3D data management: Controlling data volume, velocity, and va
 
 Docker Inc. (s.f.). *Docker Compose overview* [Documentación técnica]. Recuperado el 8 de noviembre de 2026, de https://docs.docker.com/compose/
 
+GitHub. (s.f.). *About large files on GitHub* [Documentación técnica]. Recuperado el 9 de noviembre de 2026, de https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github
+
 Eclipse Foundation. (s.f.). *Eclipse Temurin* [Software]. Adoptium. Recuperado el 8 de noviembre de 2026, de https://adoptium.net/
+
+Ministerio de Tecnologías de la Información y las Comunicaciones. (s.f.). *Portal de datos abiertos de Colombia* [Sitio web]. Recuperado el 9 de noviembre de 2026, de https://www.datos.gov.co/
+
+Project Jupyter. (s.f.). *JupyterLab documentation* [Documentación técnica]. Recuperado el 9 de noviembre de 2026, de https://jupyterlab.readthedocs.io/
 
 The Apache Software Foundation. (2026a). *Spark overview* (Versión 4.3.0) [Documentación técnica]. https://spark.apache.org/docs/latest/
 

@@ -1,0 +1,21 @@
+Big Data es el término que describe grandes volúmenes de datos que no pueden
+procesarse con herramientas tradicionales. Se caracteriza por las cinco V: volumen,
+velocidad, variedad, veracidad y valor. Apache Spark es un motor de procesamiento
+distribuido que permite analizar datos a gran escala de forma rápida porque trabaja en
+memoria. Spark divide los datos en particiones y las procesa en paralelo en un cluster
+de computadores. Cada computador del cluster ejecuta tareas sobre una parte de los datos.
+Spark ofrece varias bibliotecas: Spark SQL para consultas sobre datos estructurados,
+Structured Streaming para datos en tiempo real, MLlib para aprendizaje automático y
+GraphX para grafos. Los datos en Spark se representan como RDD o como DataFrame.
+Un DataFrame organiza los datos en columnas con nombre, igual que una tabla en una base
+de datos. Las operaciones sobre un DataFrame se dividen en transformaciones y acciones.
+Las transformaciones son perezosas: Spark solo las ejecuta cuando se llama una acción.
+Esta evaluación perezosa permite a Spark optimizar el plan de ejecución completo.
+El optimizador Catalyst reorganiza las consultas para leer menos datos y hacer menos
+trabajo. Los datos pueden leerse desde archivos CSV, JSON, Parquet, bases de datos o
+sistemas distribuidos como HDFS y almacenamiento en la nube. Parquet es un formato
+columnar que comprime los datos y acelera las consultas analíticas. En un proyecto de
+Big Data los datos pasan por etapas de ingesta, limpieza, transformación, análisis y
+visualización. Spark se usa en todas estas etapas y por eso es una herramienta central
+en la ingeniería de datos y en la ciencia de datos. Aprender Spark permite procesar
+millones de registros con unas pocas líneas de código en Python, Scala, Java, R o SQL.

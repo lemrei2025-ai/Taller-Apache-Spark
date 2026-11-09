@@ -19,7 +19,7 @@ RUN apt-get update \
 
 # PySpark (incluye los binarios de Spark) + librerías del taller
 RUN pip install --no-cache-dir \
-      "pyspark==${SPARK_VERSION}" "pandas<3" pyarrow numpy matplotlib jupyterlab findspark
+      "pyspark==${SPARK_VERSION}" "pandas<3" pyarrow numpy matplotlib jupyterlab findspark openpyxl
 
 # SPARK_HOME apunta a la instalación de PySpark
 ENV SPARK_HOME=/usr/local/lib/python3.12/site-packages/pyspark
